@@ -1,0 +1,20 @@
+[project]
+name = "vtex-orders-etl"
+version = "0.1.0"
+description = "This repository contains a collection of scripts for extracting, transforming, and loading (ETL) order data from the VTEX API into a database. It also includes a script to process vtex order report files and insert their data into the database."
+readme = "README.md"
+requires-python = ">=3.12.6"
+dependencies = [
+    "aiohttp>=3.11.6",
+    "pandas>=2.2.3",
+    "pyodbc>=5.2.0",
+    "requests>=2.32.3",
+    "sqlalchemy>=2.0.36",
+]
+
+[dependency-groups]
+dev = [
+    "pre-commit>=4.0.1",
+    "pytest>=8.3.3",
+    "ruff>=0.7.4",
+]
