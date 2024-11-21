@@ -93,7 +93,10 @@ def process_order_items(df: pd.DataFrame, engine, table: str):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="")
     parser.add_argument(
-        "directory", type=str, help="The directory containing the files to process."
+        "-d",
+        "--directory",
+        type=str,
+        help="The directory containing the files to process.",
     )
     args = parser.parse_args()
 
