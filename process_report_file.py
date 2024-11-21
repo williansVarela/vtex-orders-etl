@@ -69,6 +69,8 @@ def process_order_items(df: pd.DataFrame, engine, table: str):
         "SKU Name": "name",
         "Reference Code": "refId",
         "SKU Value": "price",
+        "SKU Selling Price": "sellingPrice",
+        "SKU Total Price": "totalPrice",
     }
 
     seller_name = os.getenv("SELLER_NAME", "")
