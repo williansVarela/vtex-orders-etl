@@ -33,8 +33,10 @@ CREATE TABLE [OrderItems] (
     "name" NVARCHAR(1024),
     refId NVARCHAR(128),
     price DECIMAL(18, 2),
+    sellingPrice DECIMAL(18, 2),
+    totalPrice DECIMAL(18, 2),
     sellerSku NVARCHAR(64),
     measurementUnit NVARCHAR(16),
     isGift BIT,
-    FOREIGN KEY (orderId) REFERENCES [VTEX_Orders](orderId)
+    FOREIGN KEY (orderId) REFERENCES [Orders](orderId)
 );
