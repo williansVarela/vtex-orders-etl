@@ -102,6 +102,8 @@ if __name__ == "__main__":
     )
     args = parser.parse_args()
 
+    processed_folder = "PROCESSED"
+
     db_conn_str = os.getenv("DB_CONN_STRING", "")
     engine = create_engine(db_conn_str)
 
@@ -134,5 +136,10 @@ if __name__ == "__main__":
 
             logging.info(f"Finished processing the file {file_path}")
 
-            # Remove the file after processing
-            os.remove(file_path)
+            processed_path = os.path.join(args.directory, processed_folder)
+            if not os.path.exists(processed_path):
+                os.makedirs(processed_path)
+
+            os.rename(file_path, os.path.join(processed_folder, filename))
+
+    logging.info("Finished")
