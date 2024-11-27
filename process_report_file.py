@@ -120,26 +120,31 @@ if __name__ == "__main__":
     files.sort()
 
     for filename in files:
+        file_path = os.path.join(args.directory, filename)
+        logging.info(f"Reading the file {file_path}")
+
         if filename.endswith(".xlsx"):
-            file_path = os.path.join(args.directory, filename)
-
-            logging.info(f"Reading the file {file_path}")
             df = pd.read_excel(file_path)
+        elif filename.endswith(".csv"):
+            df = pd.read_csv(file_path, sep=";")
+        else:
+            logging.warning(f"File {filename} is not supported")
+            continue
 
-            df["TotalItems"] = df.groupby("Order")["Order"].transform("count")
+        df["TotalItems"] = df.groupby("Order")["Order"].transform("count")
 
-            logging.info("Processing the orders")
-            process_orders(df, engine, orders_table)
+        logging.info("Processing the orders")
+        process_orders(df, engine, orders_table)
 
-            logging.info("Processing the order items")
-            process_order_items(df, engine, order_items_table)
+        logging.info("Processing the order items")
+        process_order_items(df, engine, order_items_table)
 
-            logging.info(f"Finished processing the file {file_path}")
+        logging.info(f"Finished processing the file {file_path}")
 
-            processed_path = os.path.join(args.directory, processed_folder)
-            if not os.path.exists(processed_path):
-                os.makedirs(processed_path)
+        processed_path = os.path.join(args.directory, processed_folder)
+        if not os.path.exists(processed_path):
+            os.makedirs(processed_path)
 
-            os.rename(file_path, os.path.join(processed_folder, filename))
+        os.rename(file_path, os.path.join(processed_folder, filename))
 
     logging.info("Finished")
