@@ -139,3 +139,6 @@ reports/*
 
 # Azure
 local.settings.json
+
+# VS Code
+.vscode/
