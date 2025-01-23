@@ -145,6 +145,6 @@ if __name__ == "__main__":
         if not os.path.exists(processed_path):
             os.makedirs(processed_path)
 
-        os.rename(file_path, os.path.join(processed_folder, filename))
+        os.rename(file_path, os.path.join(processed_path, filename))
 
     logging.info("Finished")
