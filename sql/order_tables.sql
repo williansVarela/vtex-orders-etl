@@ -22,6 +22,8 @@ CREATE TABLE [Orders] (
     city NVARCHAR(512)
 );
 
+CREATE INDEX idx_creationDate ON [VTEX_Orders](creationDate);
+
 CREATE TABLE [OrderItems] (
     id NVARCHAR(64),
     uniqueId NVARCHAR(256) PRIMARY KEY,
