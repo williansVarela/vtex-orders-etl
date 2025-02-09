@@ -4,7 +4,8 @@ from datetime import datetime, timezone
 
 import azure.functions as func
 import pyodbc
-from vtex_client import Order, OrderItem, VtexOrdersAPI
+from utils.types import Order, OrderItem
+from vtex_client import VtexOrdersAPI
 
 app = func.FunctionApp()
 
