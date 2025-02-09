@@ -127,18 +127,23 @@ bin
 obj
 appsettings.json
 local.settings.json
+functions/*/bin/
+functions/*/obj/
+functions/*/appsettings.json
+functions/*/local.settings.json
 
 # Azurite artifacts
 __blobstorage__
 __queuestorage__
 __azurite_db*__.json
 .python_packages
+functions/*/__blobstorage__
+functions/*/__queuestorage__
+functions/*/__azurite_db*__.json
+functions/*/.python_packages
 
 # Reports files
 reports/*
-
-# Azure
-local.settings.json
 
 # VS Code
 .vscode/
