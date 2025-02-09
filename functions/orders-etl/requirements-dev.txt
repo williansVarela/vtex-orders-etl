@@ -1,0 +1,6 @@
+pyodbc
+pandas
+sqlalchemy
+requests
+aiohttp
+pytest
